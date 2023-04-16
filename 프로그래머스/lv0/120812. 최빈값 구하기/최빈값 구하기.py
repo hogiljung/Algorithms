@@ -1,7 +1,6 @@
-from collections import Counter
-
 def solution(array):
-    cnt = Counter(array).most_common(2)
-    if len(cnt) == 1:
-        return cnt[0][0]
-    return -1 if cnt[0][1] == cnt[1][1] else cnt[0][0]
+    while len(array) != 0:
+        for i, a in enumerate(set(array)):
+            array.remove(a)
+        if i == 0: return a
+    return -1
