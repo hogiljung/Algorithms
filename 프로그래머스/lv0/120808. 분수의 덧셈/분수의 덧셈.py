@@ -6,8 +6,6 @@ def solution(numer1, denom1, numer2, denom2):
 
 def gcd(x, y):
     while y != 0:
-        r = x % y
-        x = y
-        y = r
+        x, y = y, x%y
     
     return x
