@@ -1,2 +1,6 @@
 def solution(n):
-    return sum(int(i) for i in str(n))
+    answer = 0
+    while n:
+        answer += n%10
+        n //= 10
+    return answer
