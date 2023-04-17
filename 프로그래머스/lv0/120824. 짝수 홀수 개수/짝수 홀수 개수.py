@@ -1,4 +1,5 @@
 def solution(num_list):
-    even_count = sum(1 for n in num_list if n%2 == 0)
-    odd_count = len(num_list) - even_count
-    return [even_count, odd_count]
+    answer = [0,0]
+    for n in num_list:
+        answer[n%2] += 1
+    return answer
