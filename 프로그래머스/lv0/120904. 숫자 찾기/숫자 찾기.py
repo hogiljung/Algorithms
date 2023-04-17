@@ -1,4 +1,2 @@
 def solution(num, k):
-    answer = str(num).find(str(k))
-    
-    return answer+1 if answer != -1 else answer
+    return -1 if str(k) not in str(num) else str(num).find(str(k))+1
