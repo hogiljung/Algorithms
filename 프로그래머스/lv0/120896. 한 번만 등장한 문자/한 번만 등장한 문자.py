@@ -3,4 +3,4 @@ def solution(s):
     for c in set(s):
         s_list.remove(c)
         
-    return ''.join(sorted([c for c in s if c not in s_list]))
+    return ''.join(sorted(set(s) - set(s_list)))
