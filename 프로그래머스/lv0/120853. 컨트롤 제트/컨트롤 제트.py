@@ -1,8 +1,10 @@
 def solution(s):
-    s_list = [c for c in s.split()]
+    s_stack = []
 
-    for i, c in enumerate(s_list):
+    for c in s.split():
         if c == 'Z':
-            s_list[i-1] = s_list[i] = 0
+            s_stack.pop()
+        else:
+            s_stack.append(int(c))
 
-    return sum(map(int, s_list))
+    return sum(s_stack)
