@@ -1,2 +1,12 @@
 def solution(sizes):
-    return max(max(x) for x in sizes) * max(min(x) for x in sizes)
+    width = 0
+    height = 0
+    
+    for w, h in sizes:
+        if w < h:
+            w, h = h, w
+            
+        width = max(width, w)
+        height = max(height, h)
+        
+    return width * height
