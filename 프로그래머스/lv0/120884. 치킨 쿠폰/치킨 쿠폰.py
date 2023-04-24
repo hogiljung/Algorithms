@@ -1,8 +1,7 @@
 def solution(chicken):
-    coupon = chicken
-    total_service = 0
-    while coupon // 10 != 0:
-        service, coupon = divmod(coupon, 10)
-        total_service += service
-        coupon += service
-    return total_service
+    service = 0
+    while chicken >= 10:
+        chicken, mod = divmod(chicken, 10)
+        service += chicken
+        chicken += mod
+    return service
