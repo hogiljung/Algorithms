@@ -1,5 +1,9 @@
-## 🔥 다시 풀어 볼 문제
+## 🤧 달성
+|Title|Date|Link|
+|:---:|:---:|:---:|
+|Programmers 입문 완료|`2023-04-12` -> `2023-04-27`|[코딩테스트 입문 캘린더](https://user-images.githubusercontent.com/112647829/234763534-18245d6b-f7e9-4529-a37c-b5d6d1980b1f.png)|
 
+## 🔥 다시 풀어 볼 문제
 |Problem|Date|Study|
 |:---:|:---:|:---:|
 |[Programmers/lv0/치킨 쿠폰](https://github.com/hogiljung/Algorithms/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv0/120884.%E2%80%85%EC%B9%98%ED%82%A8%E2%80%85%EC%BF%A0%ED%8F%B0)|`2023-04-24`||
