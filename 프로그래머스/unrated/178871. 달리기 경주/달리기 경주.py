@@ -1,8 +1,5 @@
 def solution(players, callings):
-    rank_tb = dict()
-    
-    for i, v in enumerate(players):
-        rank_tb[v] = i
+    rank_tb = {v:i for i,v in enumerate(players)}
     
     for calling in callings:
         up, down = rank_tb[calling]-1, rank_tb[calling]
