@@ -1,3 +1,3 @@
 def solution(n):
-    return ''.join('수박'[i%2] for i in range(n))
+    return ''.join('수박'*(n//2) + '수'*(n%2))
         
