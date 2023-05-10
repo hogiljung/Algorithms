@@ -1,3 +1,3 @@
 def solution(arr):
-    arr.pop(arr.index(min(arr)))
+    arr.remove(min(arr))
     return arr or [-1]
