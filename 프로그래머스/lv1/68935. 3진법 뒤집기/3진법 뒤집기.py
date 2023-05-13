@@ -5,6 +5,5 @@ def solution(n):
         third_count += str(n % 3)
         n //= 3
     
-    for i, c in enumerate(third_count):
-        answer += (3**(len(third_count)-1 - i)) * int(c)
+    answer = int(third_count, 3)
     return answer
