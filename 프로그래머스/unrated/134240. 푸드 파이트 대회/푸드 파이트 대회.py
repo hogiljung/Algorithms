@@ -1,8 +1,5 @@
 def solution(food):
-    answer = []
-    
-    for i, count in enumerate(food[1:]):
-        for _ in range(int(count)//2):
-            answer.append(str(i+1))
-        
-    return ''.join(answer) + '0' + ''.join(answer[::-1])
+    answer = ''
+    for i,n in enumerate(food[1:]):
+        answer += str(i+1) * (n//2)
+    return answer + "0" + answer[::-1]
