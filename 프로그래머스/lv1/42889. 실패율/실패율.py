@@ -1,18 +1,14 @@
 def solution(N, stages):
-    playing_stage_tb = {}
-    stages_sorted = sorted(stages)
-    stages_sorted_set = set(stages_sorted)
     fail_rates_stage_tb = {}
+    reached_stage_player_count = len(stages)
     
-    for stage in stages:
-        playing_stage_tb.setdefault(stage, 0)
-        playing_stage_tb[stage] += 1
-        
     for stage in range(1, N+1):
-        if stage in playing_stage_tb:
-            fail_rate = playing_stage_tb[stage] / (len(stages) - stages_sorted.index(stage))
+        if reached_stage_player_count != 0:
+            player_count_stage = stages.count(stage)
+            fail_rate = player_count_stage / reached_stage_player_count
             fail_rates_stage_tb[stage] = fail_rate
+            reached_stage_player_count -= player_count_stage
         else:
             fail_rates_stage_tb[stage] = 0
     
-    return [fail_rates_stage[0] for fail_rates_stage in sorted(fail_rates_stage_tb.items(), key=lambda x: x[1], reverse=True)]
+    return sorted(fail_rates_stage_tb, key=lambda x: fail_rates_stage_tb[x], reverse=True)
