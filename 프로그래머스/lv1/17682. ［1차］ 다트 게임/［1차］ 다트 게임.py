@@ -1,21 +1,21 @@
-import re
-
 def solution(dartResult):
-    darts = re.findall("([0-9]+)([SDT])([*#]?)", dartResult)
-    answer = [0] * len(darts)
-    for idx, (num, mul, op) in enumerate(darts):
-        answer[idx] = int(num)
+    point = []
+    answer = []
+    dartResult = dartResult.replace('10','k')
+    point = ['10' if i == 'k' else i for i in dartResult]
 
-        if mul == 'D':
-            answer[idx] **= 2
-        elif mul == 'T':
-            answer[idx] **= 3
-
-        if op == '*':
-            answer[idx] *= 2
-            if 0 <= idx - 1:
-                answer[idx - 1] *= 2
-        elif op == '#':
-            answer[idx] *= -1
-
+    i = -1
+    sdt = ['S', 'D', 'T']
+    for j in point:
+        if j in sdt :
+            answer[i] = answer[i] ** (sdt.index(j)+1)
+        elif j == '*':
+            answer[i] = answer[i] * 2
+            if i != 0 :
+                answer[i - 1] = answer[i - 1] * 2
+        elif j == '#':
+            answer[i] = answer[i] * (-1)
+        else:
+            answer.append(int(j))
+            i += 1
     return sum(answer)
