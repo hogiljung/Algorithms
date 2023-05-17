@@ -6,8 +6,7 @@ def solution(number, limit, power):
         tmp = 0
         for j in range(2, int(i**0.5)+1):
             if i % j == 0:
-                tmp += 1      
-        divisor_counts[i-1] += tmp*2
+                divisor_counts[i-1] += 2
         if int(i**0.5) == i**0.5:
             divisor_counts[i-1] -= 1
             
