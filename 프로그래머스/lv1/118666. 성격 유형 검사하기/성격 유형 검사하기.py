@@ -1,21 +1,19 @@
 def solution(survey, choices):
     answer = ''
-    category = ['R','T','C','F','J','M','A','N']
-    score = [0]*8
+    category = {'RT':0, 'CF':0, 'JM':0, 'AN':0}
     
-    for c, choice in zip(survey, choices):
-        index = -1
-        if choice < 4:
-            index = category.index(c[0])
-        elif choice > 4:
-            index = category.index(c[1])
-            
-        if index != -1:
-            score[index] += abs(4-choice)
-            
-    for i in range(4):
-        if score[i*2] >= score[i*2+1]:
-            answer += category[i*2]
+    for s, choice in zip(survey, choices):
+        if s not in category:
+            s = s[::-1]
+            category[s] -= 4-choice
         else:
-            answer += category[i*2+1]
+            category[s] += 4-choice
+    
+    for k, v in category.items():
+        if v > 0:
+            answer += k[0]
+        elif v < 0:
+            answer += k[1]
+        else:
+            answer += sorted(k)[0]
     return answer
