@@ -1,25 +1,12 @@
 def solution(id_list, report, k):
-    answer = []
-    report_dict = {}
-    reporter_dict = {}
-    stopped = set()
+    answer = [0]*len(id_list)
+    report_dict = {x: 0 for x in id_list}
     
     for r in set(report):
-        reporter, reported = r.split()
-        reporter_dict.setdefault(reporter, set())
-        reporter_dict[reporter].add(reported)
+        report_dict[r.split()[1]] += 1
         
-        report_dict.setdefault(reported, 0)
-        report_dict[reported] += 1
-        
-    for reported in report_dict:
-        if report_dict[reported] >= k:
-            stopped.add(reported)
-            
-    for id in id_list:
-        if id in reporter_dict:
-            answer.append(len(reporter_dict[id]&stopped))
-        else:
-            answer.append(0)
+    for r in set(report):
+        if report_dict[r.split()[1]] >= k:
+            answer[id_list.index(r.split()[0])] += 1
     
     return answer
