@@ -1,7 +1,7 @@
 def solution(n,a,b):
-    answer = 1
+    answer = 0
 
-    while (a+1)//2 != (b+1)//2:
+    while a != b:
         a, b = (a+1)//2, (b+1)//2
         answer += 1
             
