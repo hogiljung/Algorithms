@@ -3,7 +3,7 @@ def solution(s):
     temp = []
     
     for c in s:
-        if temp[-1:] == [c]:
+        if temp and temp[-1] == c:
             temp.pop()
         else:
             temp.append(c)
