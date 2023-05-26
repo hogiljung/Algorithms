@@ -3,10 +3,10 @@ def solution(k, tangerine):
     answer = 0
     count = Counter(tangerine)
     
-    count = sorted(count.items(), key=lambda x: x[1], reverse=True)
+    count = sorted(count.values(), reverse=True)
     
     for c in count:
-        k -= c[1]
+        k -= c
         answer += 1
         if k <= 0:
             break
