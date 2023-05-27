@@ -1,11 +1,10 @@
-from collections import deque
 def solution(elements):
-    temp = set()
-    elements = deque(elements)
-    for _ in range(len(elements)):
-        s = 0
-        for i in range(len(elements)):
-            s += elements[i]
-            temp.add(s)
-        elements.append(elements.popleft())
-    return len(temp)
+    ll = len(elements)
+    res = set()
+
+    for i in range(ll):
+        ssum = 0
+        for j in range(i, i+ll):
+            ssum += elements[j%ll]
+            res.add(ssum)
+    return len(res)
