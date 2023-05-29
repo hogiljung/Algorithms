@@ -1,14 +1,10 @@
 from collections import Counter
 def solution(want, number, discount):
-    wishlist={w:n for w,n in zip(want, number)}
-    ans=0
+    answer = 0
+    dic = {w:n for w,n in zip(want, number)}
 
-    wishlistLen= sum(wishlist.values())
-    wishlist=Counter(wishlist)
+    for i in range(len(discount)-9):
+        if dic == Counter(discount[i:i+10]): 
+            answer += 1
 
-    for i in range(0,len(discount)-wishlistLen+1):
-        dislist=Counter(discount[i:i+wishlistLen])
-        checklist=wishlist-dislist
-        if sum(checklist.values())==0:
-            ans+=1
-    return ans
+    return answer
