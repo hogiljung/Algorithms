@@ -1,18 +1,31 @@
-from itertools import permutations
+visited = []
+N = 0
+answer = -1
 
 def solution(k, dungeons):
-    answer = -1
-    enter_orders = permutations(range(len(dungeons)), len(dungeons))
-    
-    for order in enter_orders:
-        temp = k
-        count = 0
-        for i in order:
-            if temp < dungeons[i][0]:
-                continue
-            temp -= dungeons[i][1]
-            count += 1
-        if answer < count:
-            answer = count
-    
+    global N, visited
+    N = len(dungeons)
+    visited = [False] * N
+    dfs(k, 0, dungeons)
     return answer
+
+def dfs(k, cnt, dungeons):
+    global answer
+    if cnt > answer:
+        answer = cnt
+    
+    for i in range(N):
+        if k >= dungeons[i][0] and not visited[i]:
+            visited[i] = True
+            dfs(k-dungeons[i][1], cnt+1, dungeons)
+            visited[i] = False
+
+
+
+
+
+
+
+
+
+
