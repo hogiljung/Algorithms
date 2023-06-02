@@ -12,6 +12,4 @@ def solution(n, t, m, p):
         numbers += temp[::-1]
         i = count + 1
     
-    for i in range(p-1, t*m, m):
-        answer += numbers[i]
-    return answer
+    return numbers[p-1:t*m:m]
