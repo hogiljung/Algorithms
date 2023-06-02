@@ -1,15 +1,11 @@
 def solution(n, t, m, p):
-    answer = ''
-    numbers = '0'
-    n_tb = {'10':'A', '11':'B', '12':'C', '13':'D', '14':'E', '15':'F'}
-    i = 1
-    while len(numbers) // m < t:
-        count = i
+    data = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+    numbers = "0"
+    for number in range(1, t*m):
         temp = ''
-        while i > 0:
-            temp += str(i % n) if (i % n) < 10 else n_tb[str(i % n)]
-            i //= n
-        numbers += temp[::-1]
-        i = count + 1
-    
+        while number > 0:
+            temp = data[number%n] + temp
+            number //= n
+        numbers += temp
+
     return numbers[p-1:t*m:m]
