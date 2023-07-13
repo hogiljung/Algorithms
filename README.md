@@ -12,6 +12,12 @@
 ## 🔥 다시 풀어 볼 문제
 |Problem|Date|Study|
 |:---:|:---:|:---:|
+|[Baekjoon/silver/연산자 끼워넣기](https://github.com/hogiljung/Algorithms/tree/main/백준/Silver/14888.%E2%80%85연산자%E2%80%85끼워넣기)|`2023-07-13`||
+|[Programmers/lv2/뒤에 있는 큰 수 찾기](https://github.com/hogiljung/Algorithms/tree/main/프로그래머스/unrated/154539.%E2%80%85뒤에%E2%80%85있는%E2%80%85큰%E2%80%85수%E2%80%85찾기)|`2023-06-13`||
+|[Programmers/lv3/여행경로](https://github.com/hogiljung/Algorithms/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv3/43164.%E2%80%85%EC%97%AC%ED%96%89%EA%B2%BD%EB%A1%9C)|`2023-06-04`||
+|[Programmers/lv3/단어변환](https://github.com/hogiljung/Algorithms/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv3/43163.%E2%80%85%EB%8B%A8%EC%96%B4%E2%80%85%EB%B3%80%ED%99%98)|`2023-06-04`||
+|[Programmers/lv2/피로도](https://github.com/hogiljung/Algorithms/tree/bc50164a4c658d8e9aaf24769d7468f9f573bfdb/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv2/87946.%E2%80%85%ED%94%BC%EB%A1%9C%EB%8F%84)|`2023-05-22`||
+|[Programmers/lv2/행렬의 곱셈](https://github.com/hogiljung/Algorithms/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv2/12949.%E2%80%85%ED%96%89%EB%A0%AC%EC%9D%98%E2%80%85%EA%B3%B1%EC%85%88)|`2023-05-22`||
 |[Programmers/lv2/예상 대진표](https://github.com/hogiljung/Algorithms/tree/main/프로그래머스/lv2/12985.%E2%80%85예상%E2%80%85대진표)|`2023-05-22`||
 |[Programmers/lv2/구명보트](https://github.com/hogiljung/Algorithms/tree/main/프로그래머스/lv2/42885.%E2%80%85구명보트)|`2023-05-22`||
 |[Programmers/lv1/숫자의 표현](https://github.com/hogiljung/Algorithms/tree/main/프로그래머스/lv2/12924.%E2%80%85숫자의%E2%80%85표현)|`2023-05-22`||
