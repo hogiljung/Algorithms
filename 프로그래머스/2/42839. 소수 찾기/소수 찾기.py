@@ -1,29 +1,25 @@
-from itertools import permutations
+numbers_combinations = set()
 
 def solution(numbers):
-    answer = 0
+    makeCombinations("", numbers)
     
-    def is_prime(n):
-        if n <= 1:
-            return False
-        
-        for i in range(2, int(n ** .5) + 1):
-            if n % i == 0:
-                return False
-        return True
-    
-    checked_number = set()
-    
-    for i in range(1, len(numbers) + 1):
-        for p_arr in permutations(numbers, i):
-            num = int(''.join(p_arr))
-            
-            if num in checked_number:
-                continue
-            
-            checked_number.add(num)
-                
-            if is_prime(num):
-                answer += 1
+    answer = len(numbers_combinations)
     
     return answer
+
+def makeCombinations(str1, str2):
+    print(str1)
+    if str1 != "" and isPrime(int(str1)):
+        numbers_combinations.add(int(str1))
+        
+    for i in range(len(str2)):
+        makeCombinations(str1+str2[i], str2[:i]+str2[i+1:])
+        
+def isPrime(n):
+    if n in (0, 1):
+        return False
+    
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+    return True
