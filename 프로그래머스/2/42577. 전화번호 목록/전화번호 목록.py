@@ -1,11 +1,14 @@
 def solution(phone_book):
     answer = True
     
-    phone_book.sort()
+    hash_map = {}
     
-    for i in range(0, len(phone_book)-1):
-        if phone_book[i] == phone_book[i+1][:len(phone_book[i])]:
-            answer = False
-            break
+    for phone_number in phone_book:
+        hash_map[phone_number] = 1
+        
+    for phone_number in phone_book:
+        for i in range(1, len(phone_number)):
+            if phone_number[:i] in hash_map:
+                return False
     
     return answer
