@@ -17,7 +17,7 @@ def solution(n, times):
             l = mid + 1
         else:
             r = mid
-            
+    
     answer = l
             
     return answer
