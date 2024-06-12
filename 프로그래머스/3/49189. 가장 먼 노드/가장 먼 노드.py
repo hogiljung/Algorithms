@@ -7,20 +7,20 @@ def solution(n, edge):
         graph[start].append(end)
         graph[end].append(start)
     
-    visited = [-1] * (n+1)
+    visited = [False] * (n+1)
     
-    dist = 0
-    visited[1] = dist
+    start = 1
+    visited[start] = True
     q = deque([1])
     
     while q:
-        dist += 1
+        answer = len(q)
 
         for _ in range(len(q)):
             node = q.popleft()
             for connected in graph[node]:
-                if visited[connected] == -1:
-                    visited[connected] = dist
+                if not visited[connected]:
+                    visited[connected] = True
                     q.append(connected)
 
-    return visited.count(dist-1)
+    return answer
