@@ -2,25 +2,26 @@ from collections import deque
 
 def solution(n, edge):
     graph = [[] for _ in range(n+1)]
-    
+
     for start, end in edge:
         graph[start].append(end)
         graph[end].append(start)
-    
-    visited = [False] * (n+1)
-    
+
+    visited = [-1] * (n+1)
+
+    dist = 0
     start = 1
-    visited[start] = True
-    q = deque([1])
-    
+    visited[start] = dist
+    q = deque([start])
+
     while q:
-        answer = len(q)
+        dist += 1
 
         for _ in range(len(q)):
             node = q.popleft()
             for connected in graph[node]:
-                if not visited[connected]:
-                    visited[connected] = True
+                if visited[connected] == -1:
+                    visited[connected] = dist
                     q.append(connected)
 
-    return answer
+    return visited.count(dist-1)
