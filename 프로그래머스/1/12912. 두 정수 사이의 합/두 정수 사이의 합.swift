@@ -1,17 +1,14 @@
 func solution(_ a:Int, _ b:Int) -> Int64 {
-    if a > b {
-        return getSum(b, a)
-    } else if a == b {
+    if a == b {
         return Int64(a)
+    }
+    
+    var count: Int
+    if a < b {
+        count = b-a+1
     } else {
-        return getSum(a, b)
+        count = a-b+1
     }
-}
-
-func getSum(_ a: Int, _ b: Int) -> Int64 {
-    var answer = Int64(a)
-    for v in a+1...b {
-        answer += Int64(v)
-    }
-    return answer
+    
+    return Int64((a+b) * count / 2)
 }
