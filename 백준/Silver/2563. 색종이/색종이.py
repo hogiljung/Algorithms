@@ -1,14 +1,15 @@
-paper = [[0 for _ in range(100)] for _ in range(100)]
+import sys
+input = sys.stdin.readline
 
-for _ in range(int(input())):
-    left, top = map(int, input().split())
+AREA_X = 100
+AREA_Y = 100
+area = [[0 for _ in range(AREA_X)] for _ in range(AREA_Y)]
 
-    for i in range(10):
-        for j in range(10):
-            paper[top+i][left+j] = 1
-    
-count = 0
-for i in range(100):
-    count += paper[i].count(1)
+N = int(input())
+for _ in range(N):
+    x, y = map(int, input().split())
+    for i in range(x, min(x + 10, AREA_X)):
+        for j in range(y, min(y + 10, AREA_Y)):
+            area[j][i] = 1
 
-print(count)
+print(sum([sum(area[i]) for i in range(len(area))]))
