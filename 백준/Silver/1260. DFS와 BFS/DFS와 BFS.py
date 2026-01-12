@@ -1,54 +1,48 @@
-from collections import deque
 import sys
+from collections import deque
+
 input = sys.stdin.readline
 
-def dfs(graph, visited, start):
-    s = [start]
+N, M, V = map(int, input().split())
+grpah = [[] for _ in range(N + 1)]
+for _ in range(M):
+    start, end = map(int, input().split())
+    grpah[start].append(end)
+    grpah[start].sort()
+    grpah[end].append(start)
+    grpah[end].sort()
 
-    while s:
-        v = s.pop()
-        if not visited[v]:
-            visited[v] = True
-            print(v, end=' ')
 
-            for connected_v in graph[v]:
-                if not visited[connected_v]:
-                    s.append(connected_v)
+visited = [False] * (N + 1)
 
-def bfs(graph, visited, start):
+
+def dfs(grpah, start, visited):
+    visited[start] = True
+    print(start, end=" ")
+    for i in grpah[start]:
+        if not visited[i]:
+            dfs(grpah, i, visited)
+
+
+dfs(grpah, V, visited)
+print()
+
+
+visited = [False] * (N + 1)
+
+
+def bfs(grpah, start, visited):
     queue = deque([start])
     visited[start] = True
+    print(start, end=" ")
 
     while queue:
         v = queue.popleft()
-        print(v, end=' ')
+        for i in grpah[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+                print(i, end=" ")
 
-        for connected_v in graph[v]:
-            if not visited[connected_v]:
-                queue.append(connected_v)
-                visited[connected_v] = True
 
-def solution():
-    N, M, V = map(int, input().split())
-    graph = [[] for _ in range(N+1)]
-    for _ in range(M):
-        a, b = map(int, input().split())
-
-        graph[a].append(b)
-        graph[b].append(a)
-
-    for i in range(1, N+1):
-        graph[i].sort(reverse=True)
-
-    visited = [False] * (N+1)
-
-    dfs(graph, visited.copy(), V)
-    print()
-
-    for i in range(1, N+1):
-        graph[i].sort()
-
-    bfs(graph, visited.copy(), V)
-
-if __name__ == '__main__':
-    solution()
+bfs(grpah, V, visited)
