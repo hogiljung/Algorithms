@@ -10,35 +10,56 @@ import java.util.*;
 // 들어가는 차량에 들어간 시간을 부여하고,
 // 빠져나올 때 걸린 시간을 파악한다.
 class Solution {
+    class Truck {
+        int weight;
+        int move;
+
+        public Truck(int weight) {
+            this.weight = weight;
+        }
+
+        public void moving() {
+            move++;
+        }
+    }
+
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        int time = 0;
-        ArrayDeque<int[]> q = new ArrayDeque<>();
-        int on_board_weight = 0;
+        Queue<Truck> waitQ = new ArrayDeque<>();
+        Queue<Truck> moveQ = new ArrayDeque<>();
+
         for (int tw : truck_weights) {
-            time += 1;
-            if (!q.isEmpty()) {
-                int[] info = q.peek();
-                if (info[1] + bridge_length <= time) {
-                    q.pop();
-                    on_board_weight -= info[0];
-                }
-            }
-
-            on_board_weight += tw;
-            while (on_board_weight > weight) {
-                int[] info = q.poll();
-                on_board_weight -= info[0];
-                time += bridge_length - (time - info[1]);
-            }
-            q.add(new int[] { tw, time });
+            waitQ.offer(new Truck(tw));
         }
 
-        while (!q.isEmpty()) {
-            int[] info = q.poll();
-            on_board_weight -= info[0];
-            time += bridge_length - (time - info[1]);
+        int answer = 0;
+        int curWeight = 0;
+
+        while (!waitQ.isEmpty() || !moveQ.isEmpty()) {
+            answer++;
+            for (Truck t : moveQ) {
+                t.moving();
+            }
+
+            if (!moveQ.isEmpty() && moveQ.peek().move > bridge_length) {
+                Truck t = moveQ.poll();
+                curWeight -= t.weight;
+            }
+
+            // if (moveQ.isEmpty()) {
+            // Truck t = waitQ.poll();
+            // curWeight += t.weight;
+            // moveQ.offer(t);
+            // continue;
+            // }
+
+            if (!waitQ.isEmpty() && curWeight + waitQ.peek().weight <= weight) {
+                Truck t = waitQ.poll();
+                curWeight += t.weight;
+                t.moving();
+                moveQ.offer(t);
+            }
         }
 
-        return time;
+        return answer;
     }
 }
