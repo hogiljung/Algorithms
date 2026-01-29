@@ -1,9 +1,7 @@
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] numbers, int num1, int num2) {
-        return IntStream.rangeClosed(num1, num2)
-            .map(i -> numbers[i])
-            .toArray();
+        return Arrays.copyOfRange(numbers, num1, num2+1);
     }
 }
