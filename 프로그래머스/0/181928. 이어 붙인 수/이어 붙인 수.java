@@ -1,18 +1,18 @@
 class Solution {
     public int solution(int[] num_list) {
-        StringBuilder sb1 = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
+        int odd = 0;
+        int even = 0;
         
-        for (int i=0; i<num_list.length; i++) {
-            int num = num_list[i];
+        for (int num : num_list) {
             if (num % 2 == 1) {
-                sb1.append(num_list[i]);
+                odd *= 10;
+                odd += num;
             } else {
-                sb2.append(num_list[i]);
+                even *= 10;
+                even += num;
             }
         }
         
-        int answer = Integer.parseInt(sb1.toString()) + Integer.parseInt(sb2.toString());
-        return answer;
+        return odd + even;
     }
 }
