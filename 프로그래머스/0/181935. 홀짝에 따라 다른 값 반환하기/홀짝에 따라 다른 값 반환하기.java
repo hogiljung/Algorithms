@@ -3,13 +3,11 @@ class Solution {
         int answer = 0;
         
         if (n % 2 == 0) {
-            for (int i=0; i<=n; i+=2) {
-                answer += i * i;
-            }
+            int k = n / 2;
+            answer = 4 * k * (k + 1) * (2 * k + 1) / 6;
         } else {
-            for (int i=1; i<=n; i+=2) {
-                answer += i;
-            }
+            int k = (n + 1) / 2;
+            answer = k * k;
         }
         
         return answer;
