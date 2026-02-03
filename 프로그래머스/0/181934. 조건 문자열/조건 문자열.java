@@ -1,21 +1,23 @@
 class Solution {
     public int solution(String ineq, String eq, int n, int m) {
-        int answer = 0;
+        String s = ineq + eq;
+        boolean t = false;
         
-        if (ineq.equals(">")) {
-            if (eq.equals("=")) {
-                answer = n >= m ? 1 : 0;
-            } else {
-                answer = n > m ? 1 : 0;
-            }
-        } else {
-            if (eq.equals("=")) {
-                answer = n <= m ? 1 : 0;
-            } else {
-                answer = n < m ? 1 : 0;
-            }
+        switch (s) {
+            case ">=":
+                t = n >= m;
+                break;
+            case ">!":
+                t = n > m;
+                break;
+            case "<=":
+                t = n <= m;
+                break;
+            case "<!":
+                t = n < m;
+                break;
         }
         
-        return answer;
+        return t ? 1 : 0;
     }
 }
