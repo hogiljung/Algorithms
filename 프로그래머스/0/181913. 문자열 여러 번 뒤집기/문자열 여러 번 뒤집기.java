@@ -1,20 +1,23 @@
 class Solution {
     public String solution(String my_string, int[][] queries) {
-        StringBuilder sb = new StringBuilder(my_string);
-        
+        char[] temp = my_string.toCharArray();
         for (int[] query : queries) {
-            int s = query[0];
-            int e = query[1];
-            
-            for (int i=0; i<=(e-s)/2; i++) {
-                int i1 = s+i;
-                int i2 = e-i;
-                char temp = sb.charAt(i1);
-                sb.setCharAt(i1, sb.charAt(i2));
-                sb.setCharAt(i2, temp);
-            }
+            reverse(temp, query[0], query[1]);
         }
-        String answer = sb.toString();
-        return answer;
+        return new String(temp);
+    }
+    
+    private void reverse(char[] c, int i, int j) {
+        while (i < j) {
+            swap(c, i, j);
+            i++;
+            j--;
+        }
+    }
+    
+    private void swap(char[] c, int i, int j) {
+        char t = c[i];
+        c[i] = c[j];
+        c[j] = t;
     }
 }
