@@ -1,13 +1,10 @@
-import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 class Solution {
     public String[] solution(String[] todo_list, boolean[] finished) {
-        ArrayList<String> answer = new ArrayList<>();
-        for (int i=0; i<todo_list.length; i++) {
-            if (!finished[i]) {
-                answer.add(todo_list[i]);
-            }
-        }
-        return answer.stream().toArray(String[]::new);
+        return IntStream.range(0, todo_list.length)
+            .filter(i -> !finished[i])
+            .mapToObj(i -> todo_list[i])
+            .toArray(String[]::new);
     }
 }
