@@ -1,11 +1,17 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 class Solution {
     public String[] solution(String myStr) {
-        String[] temp = Arrays.stream(myStr.split("[abc]+"))
-            .filter(x -> !x.isEmpty())
-            .toArray(String[]::new);
+        String[] parts = myStr.split("[abc]+");
         
-        return temp.length == 0 ? new String[] {"EMPTY"} : temp;
+        ArrayList<String> list = new ArrayList<>();
+        
+        for (String part : parts) {
+            if (!part.isEmpty()) {
+                list.add(part);
+            }
+        }
+        
+        return list.isEmpty() ? new String[] {"EMPTY"} : list.toArray(String[]::new);
     }
 }
