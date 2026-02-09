@@ -1,18 +1,14 @@
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 
 class Solution {
     public int[] solution(int[] arr) {
-        ArrayList<Integer> answer = new ArrayList<>();
+        ArrayDeque<Integer> answer = new ArrayDeque<>();
         
         for (int n : arr) {
-            if (answer.isEmpty()) {
-                answer.add(n);
+            if (!answer.isEmpty() && answer.peekLast() == n) {
+                answer.pollLast();
             } else {
-                if (answer.get(answer.size() - 1) == n) {
-                    answer.remove(answer.size() - 1);
-                } else {
-                    answer.add(n);
-                }
+                answer.addLast(n);
             }
         }
         
