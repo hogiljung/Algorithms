@@ -1,29 +1,30 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
     public int solution(int x, int y, int n) {
-        int[] calTb = new int[y + 1];
-        int MAX = Integer.MAX_VALUE;
-        Arrays.fill(calTb, MAX);
+        boolean[] visit = new boolean[y + 1];
+        Queue<int[]> queue = new LinkedList<>();
         
-        calTb[x] = 0;
+        visit[x] = true;
+        queue.offer(new int[] { x, 0 });
         
-        for (int i = x; i < y + 1; i++) {
-            if (calTb[i] == MAX) {
-                continue;
+        while (!queue.isEmpty()) {
+            int[] data = queue.poll();
+            int cur = data[0];
+            int cnt = data[1];
+            
+            if (cur == y) {
+                return cnt;
             }
             
-            if (i + n <= y) {
-                calTb[i + n] = Math.min(calTb[i + n], calTb[i] + 1);
-            }
-            if (i * 2 <= y) {
-                calTb[i * 2] = Math.min(calTb[i * 2], calTb[i] + 1);
-            }
-            if (i * 3 <= y) {
-                calTb[i * 3] = Math.min(calTb[i * 3], calTb[i] + 1);
+            int[] nextArr = { cur + n, cur * 2, cur * 3 };
+            for (int next : nextArr) {
+                if (next <= y && !visit[next]) {
+                    visit[next] = true;
+                    queue.offer(new int[] { next, cnt + 1 });
+                }
             }
         }
-        
-        return calTb[y] == MAX ? -1 : calTb[y];
+        return -1;
     }
 }
