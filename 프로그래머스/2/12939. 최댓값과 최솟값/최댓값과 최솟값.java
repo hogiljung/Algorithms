@@ -1,13 +1,12 @@
-import java.util.*;
-
 class Solution {
     public String solution(String s) {
-        TreeSet<Integer> tree = new TreeSet<>();
-        for (String c : s.split(" ")) {
-            tree.add(Integer.parseInt(c));
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        for (String part : s.split(" ")) {
+            int cur = Integer.parseInt(part);
+            if (cur < min) min = cur;
+            if (cur > max) max = cur;
         }
         
-        String answer = tree.first() + " " + tree.last();
-        return answer;
+        return min + " " + max;
     }
 }
