@@ -2,17 +2,22 @@ import java.util.*;
 
 class Solution {
     public boolean solution(String[] phone_book) {
-        Arrays.sort(phone_book);
+        Set<String> set = new HashSet<>();
         
-        boolean answer = true;
+        for (String p : phone_book) {
+            set.add(p);
+        }
         
-        for (int i = 0; i < phone_book.length - 1; i++) {
-            if (phone_book[i+1].startsWith(phone_book[i])) {
-                answer = false;
-                break;
+        for (String p : phone_book) {
+            for (int i = 1; i < p.length(); i++) {
+                String pSub = p.substring(0, i);
+                
+                if (set.contains(pSub)) {
+                    return false;
+                }
             }
         }
         
-        return answer;
+        return true;
     }
 }
