@@ -1,10 +1,10 @@
 # [level 3] 베스트앨범 - 42579 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42579) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42579?utm_source=chatgpt.com) 
 
 ### 성능 요약
 
-메모리: 87.3 MB, 시간: 5.79 ms
+메모리: 90.7 MB, 시간: 10.03 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 01월 22일 22:18:25
+2026년 07월 09일 10:29:04
 
 ### 문제 설명
 
