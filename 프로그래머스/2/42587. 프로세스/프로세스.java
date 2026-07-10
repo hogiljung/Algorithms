@@ -2,48 +2,28 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] priorities, int location) {
-        Queue<Process> q = new LinkedList<>();
+        PriorityQueue<Integer> q = new PriorityQueue<>(Collections.reverseOrder());
         
-        for (int i = 0; i < priorities.length; i++) {
-            q.offer(new Process(i, priorities[i]));
+        for (int p : priorities) {
+            q.offer(p);
         }
         
         int answer = 0;
+        
         while (!q.isEmpty()) {
-            answer++;
-
-            int maximum = 0;
-            int idx = 0;
-            int maxIdx = 0;
-            
-            for (Process p : q) {
-                if (maximum < p.priority) {
-                    maximum = p.priority;
-                    maxIdx = idx; 
+            for (int i = 0; i < priorities.length; i++) {
+                if (priorities[i] == q.peek()) {
+                    answer++;
+                    
+                    if (i == location) {
+                        return answer;
+                    }
+                    
+                    q.poll();
                 }
-                idx++;
-            }
-            
-            for (int i = 0; i < maxIdx; i++) {
-                q.offer(q.poll());
-            }
-            
-            Process p = q.poll();
-            if (p.id == location) {
-                break;
-            }
+            }    
         }
         
         return answer;
-    }
-    
-    class Process {
-        int id;
-        int priority;
-        
-        Process (int id, int priority) {
-            this.id = id;
-            this.priority = priority;
-        }
     }
 }
