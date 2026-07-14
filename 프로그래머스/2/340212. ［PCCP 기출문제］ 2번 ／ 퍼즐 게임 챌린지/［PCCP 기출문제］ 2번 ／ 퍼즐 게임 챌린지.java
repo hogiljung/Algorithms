@@ -7,7 +7,7 @@ class Solution {
             right = Math.max(right, diff);
         }
         
-        while (left <= right) {
+        while (left < right) {
             int level = left + (right - left) / 2;
             long totalTime = times[0];
             
@@ -26,7 +26,7 @@ class Solution {
             }
             
             if (totalTime <= limit) {
-                right = level - 1;
+                right = level;
             } else {
                 left = level + 1;
             }
