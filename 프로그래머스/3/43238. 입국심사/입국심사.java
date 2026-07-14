@@ -1,8 +1,3 @@
-/*
-각 심사관이 걸려도 되는 최소 시간을 구한다.
-*/
-
-
 class Solution {
     public long solution(int n, int[] times) {
         int minimumTime = 1_000_000_000;
@@ -20,7 +15,7 @@ class Solution {
             for (int time : times) {
                 total += availableTime / time;
                 
-                if (total > n) {
+                if (total >= n) {
                     break;
                 }
             }
