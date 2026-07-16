@@ -2,16 +2,14 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        int prev = -1;
-        List<Integer> answer = new ArrayList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
         
         for (int num : arr) {
-            if (prev != num) {
-                answer.add(num);
-                prev = num;
+            if (deque.isEmpty() || deque.peekLast() != num) {
+                deque.add(num);
             }
         }
         
-        return answer.stream().mapToInt(Integer::intValue).toArray();
+        return deque.stream().mapToInt(Integer::intValue).toArray();
     }
 }
