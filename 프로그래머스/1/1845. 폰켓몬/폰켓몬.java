@@ -7,8 +7,7 @@ class Solution {
         for (int num : nums) {
             set.add(num);
         }
-                
-        int answer = Math.min(nums.length / 2, set.size());
-        return answer;
+        
+        return Math.min(nums.length / 2, set.size());
     }
 }
