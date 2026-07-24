@@ -1,12 +1,3 @@
-/*
-s->d로 가는 길을 찾으며 중간 경로를 기록
-s = n
-a = n-1
-...
-b = 1
-다음 길을 찾으며 만나면 바로 계산 완료
-*/
-
 import java.util.*;
 
 class Solution {
@@ -19,7 +10,6 @@ class Solution {
         }
         
         Arrays.fill(distance, -1);
-        distance[destination-1] = 0;
         
         for (int[] road : roads) {
             map[road[0] - 1].add(road[1] - 1);
