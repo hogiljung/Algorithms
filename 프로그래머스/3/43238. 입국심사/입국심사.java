@@ -1,32 +1,32 @@
 class Solution {
     public long solution(int n, int[] times) {
-        int minimumTime = 1_000_000_000;
-        for (int time : times) {
-            minimumTime = Math.min(minimumTime, time);
+        long maximumTime = times[0];
+        for (int time: times) {
+            maximumTime = Math.max(maximumTime, time);
         }
         
+        long right = n * maximumTime;
         long left = 1;
-        long right = (long) minimumTime * n;
+        long answer = right;
         
-        while (left < right) {
-            long availableTime = left + (right - left) / 2;
-            long total = 0;
+        while (left <= right) {
+            long count = 0;
+            long mid = left + (right - left) / 2;
             
-            for (int time : times) {
-                total += availableTime / time;
+            for (int time: times) {
+                count += mid / time;
                 
-                if (total >= n) {
-                    break;
-                }
+                if (count >= n) break;
             }
             
-            if (total >= n) {
-                right = availableTime;
+            if (count >= n) {
+                answer = mid;
+                right = mid - 1;
             } else {
-                left = availableTime + 1;
+                left = mid + 1;
             }
         }
         
-        return left;
+        return answer;
     }
 }
